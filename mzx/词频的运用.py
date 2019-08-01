@@ -24,5 +24,5 @@ def get_query_recommend (a) :
     jieguo2.append(jieguo)
     print("提示："+str(jieguo2))
     print("其他人搜索了：" + str(jieguo))
-a="犯罪"
+a="犯罪"                                                                  #用户输入
 get_query_recommend(a)

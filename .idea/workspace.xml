@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca2ed33e-b4f1-4e6e-a574-3187b889a611" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/mzx/处理词频.py" beforeDir="false" afterPath="$PROJECT_DIR$/mzx/处理词频.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mzx/词频的运用.py" beforeDir="false" afterPath="$PROJECT_DIR$/mzx/词频的运用.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,20 +12,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mzx/处理词频.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+            <state relative-caret-position="513">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mzx/词频的运用.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="14" selection-start-column="14" selection-end-column="14" />
+            <state relative-caret-position="456">
+              <caret line="26" column="71" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -39,14 +38,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mzx/词频的运用.py" />
         <option value="$PROJECT_DIR$/mzx/处理词频.py" />
+        <option value="$PROJECT_DIR$/mzx/词频的运用.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="552" />
-    <option name="y" value="22" />
+    <option name="x" value="551" />
+    <option name="y" value="21" />
     <option name="width" value="1380" />
     <option name="height" value="740" />
   </component>
@@ -110,16 +109,17 @@
       <updated>1564629529847</updated>
       <workItem from="1564629531262" duration="25000" />
       <workItem from="1564629700542" duration="154000" />
+      <workItem from="1564630022240" duration="69000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179000" />
+    <option name="totallyTimeSpent" value="248000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2533512" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25670242" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -146,17 +146,17 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mzx/词频的运用.py">
+    <entry file="file://$PROJECT_DIR$/mzx/处理词频.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        <state relative-caret-position="513">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mzx/处理词频.py">
+    <entry file="file://$PROJECT_DIR$/mzx/词频的运用.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        <state relative-caret-position="456">
+          <caret line="26" column="71" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
         </state>
       </provider>
     </entry>
