@@ -1,4 +1,4 @@
-# coding=gbk
+# coding=utf-8
 from pandas import Series, DataFrame
 import pandas as pd
 import numpy as np
@@ -7,16 +7,16 @@ import jieba.analyse
 import sys
 import json
 from collections import Counter
-tran=pd.read_csv('title.csv')
+tran=pd.read_csv('mzx/data/title.csv')
 list=pd.DataFrame(tran)
 title=[]
 for x in list['title']:
     t=jieba.cut(x,cut_all=True)
     for n in t :
         title.append(n)
-print("·Ö´Ê³É¹¦")
+print("åˆ†è¯æˆåŠŸ")
 ting=[]
-a=open('Í£ÓÃ´Ê.txt','rb').read()
+a=open('mzx/data/åœç”¨è¯.txt','rb').read()
 text=jieba.cut(a)
 for i in text:
    ting.append(i)
@@ -24,14 +24,14 @@ clearn=[]
 for k in title:
     if k not in ting:
       clearn.append(k)
-print("´¦ÀíÍ£ÓÃ´Ê±í")
+print("å¤„ç†åœç”¨è¯è¡¨")
 cipin=Counter(clearn)
 for sw in ting:
     del cipin[sw]
-print("Íê³ÉÍ³¼Æ´ÊÆµ")
+print("å®Œæˆç»Ÿè®¡è¯é¢‘")
 dict=cipin.most_common(10000)
 dict_csv=pd.DataFrame(dict)
-dict_csv.to_csv('±êÌâ´ÊÆµ.csv')
+dict_csv.to_csv('æ ‡é¢˜è¯é¢‘.csv')
 
 
 

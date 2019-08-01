@@ -1,11 +1,11 @@
-# coding=gbk
+# coding=utf-8
 from pandas import Series, DataFrame
 import jieba
 import pandas as pd
 def get_query_recommend (a) :
-    tran=pd.read_csv('±êÌâ´ÊÆµ.csv')
+    tran=pd.read_csv('æ ‡é¢˜è¯é¢‘.csv')
     list=a
-    print("ÓÃ»§ÊäÈë£º"+list)
+    print("ç”¨æˆ·è¾“å…¥ï¼š"+list)
     jieguo=[]
     jieguo2=[]
     for y in range(1,9999):
@@ -16,13 +16,13 @@ def get_query_recommend (a) :
     tran1=pd.read_csv('title.csv')
     list=pd.DataFrame(tran1)
     shuru=a
-    print("ÓÃ»§ÊäÈë:"+shuru)
+    print("ç”¨æˆ·è¾“å…¥:"+shuru)
     for x in range(len(list['title'])):
 
         if shuru == list['title'][x][0:len(shuru)]:
             jieguo2.append(list['title'][x])
     jieguo2.append(jieguo)
-    print("ÌáÊ¾£º"+str(jieguo2))
-    print("ÆäËûÈËËÑË÷ÁË£º" + str(jieguo))
-a="·¸×ï"
+    print("æç¤ºï¼š"+str(jieguo2))
+    print("å…¶ä»–äººæœç´¢äº†ï¼š" + str(jieguo))
+a="çŠ¯ç½ª"
 get_query_recommend(a)
