@@ -1,4 +1,4 @@
-body {
+body,ul, li {
 	margin: 0;
 	padding: 0;
 	background-color: #F5F5F5;
@@ -104,6 +104,7 @@ a {
 }
 
 .header-key {
+	/* position: absolute; */
 	float: left;
 	margin: 90px 0 0 70px;
 	width: 400px;
@@ -112,8 +113,12 @@ a {
 
 
 }
+/* #myForm{
+	position:relative;
+} */
 
-.header-btn {
+.search_btn {
+	position: absolute;
 	margin: 90px 0 0 0;
 	width: 50px;
 	height: 50px;
@@ -133,13 +138,39 @@ a {
 	width: 50px;
 }
 
-.nav-info ul {
-	display: none;
-	margin: 90px;
-
+.search_suggest 
+{
+ /* position:relative; */
+ z-index:999;
+ margin-left: 463px;
+ top:41px;
+ left: 132px;
+ width:400px;
+ border:0px solid #ccc;
+ border-top:none;
+ display:none;
+ color:#004080;
+}
+.search_suggest li 
+{
+ height:24px;
+ overflow:hidden;
+ padding-left:3px;
+ line-height:24px;
+ background:#fff;
+ cursor:default;
 }
 
-li {
+.search_suggest li.hover {background:#ddd;}
+.num_right 
+{
+ float:right;
+ text-align:right;
+ line-height:24px;
+ padding-right:10px
+}
+
+ #jsonTable li {
 	/* float: left; */
 	width: 650px;
 	height: 200px;
@@ -150,7 +181,7 @@ li {
 	margin-top: 50px;
 }
 
-p {}
+
 
 .one {
 	text-align: center;
