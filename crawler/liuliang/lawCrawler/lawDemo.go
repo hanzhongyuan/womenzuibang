@@ -204,7 +204,7 @@ func getLaw(url, docPath string) {
 	}
 }
 
-func solve(urlPath, docPath string) {
+func solve(urlPath, docPath string, ch chan bool) {
 	f, err := os.Open(urlPath)
 	if err != nil {
 		panic(err)
@@ -219,7 +219,9 @@ func solve(urlPath, docPath string) {
 			break
 		}
 	}
+	ch <- true
 }
+
 
 func main() {
 	// 法律分类列表
@@ -228,13 +230,20 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	ch := make(chan bool)
+	i := 0
 	for _, file := range dir {
+		i++
 		err := os.MkdirAll(filepath.Join(filePath, strings.ReplaceAll(file.Name(), ".txt", "")), os.ModePerm)
 		if err != nil {
 			panic(err)
 		}
 		fmt.Println(file.Name())
-		solve(filepath.Join(dirPath, file.Name()), filepath.Join(filePath, strings.ReplaceAll(file.Name(), ".txt", "")))
+		go solve(filepath.Join(dirPath, file.Name()), filepath.Join(filePath,
+			strings.ReplaceAll(file.Name(), ".txt", "")),ch)
+	}
+	for j := 0; j < i; j++ {
+		<-ch
 	}
 }
 
