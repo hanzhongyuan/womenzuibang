@@ -15,6 +15,7 @@ import (
 	"strings"
 	"time"
 )
+
 // 文档存取位置
 var filePath = "/home/batty/桌面/Law_Doc"
 var userAgent = []string{
@@ -80,6 +81,7 @@ var userAgent = []string{
 	"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24",
 	"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24",
 }
+
 // len = 4
 var mazilla = []string{
 	"Mozilla/5.0 ",
@@ -87,6 +89,7 @@ var mazilla = []string{
 	"Opera/9.80 ",
 	"Opera/8.0 ",
 }
+
 // len = 18
 var version = []string{
 	"(Windows NT 5.0) ",
@@ -102,22 +105,22 @@ var version = []string{
 	"(X11; Linux i686) ",
 	"(X11; Linux x86_64) ",
 	"(X11; Linux i686 on x86_64) ",
-	"(Linux; U; Android 2.3.7; en-us; Nexus One Build/FRF" + strconv.Itoa(randNum(200)) + ") ",
-	"(Macintosh; Intel Mac OS X 10_" + strconv.Itoa(randNum(20)) + "_0) ",
-	"(Macintosh; PPC Mac OS X 10_" + strconv.Itoa(randNum(20)) + "_0) ",
-	"(X11; CrOS i686 2268." + strconv.Itoa(randNum(1000)) + ".0) ",
-	"(Linux; U; Android 2.3.7; zh-cn; MB200 Build/GRJ" + strconv.Itoa(randNum(100)) + "; CyanogenMod-7) ",
+	"(Linux; U; Android 2.3.7; en-us; Nexus One Build/FRF" + strconv.Itoa(randNum(999999999999999999)) + ") ",
+	"(Macintosh; Intel Mac OS X 10_" + strconv.Itoa(randNum(999999999999999999)) + "_0) ",
+	"(Macintosh; PPC Mac OS X 10_" + strconv.Itoa(randNum(999999999999999999)) + "_0) ",
+	"(X11; CrOS i686 2268." + strconv.Itoa(randNum(999999999999999999)) + ".0) ",
+	"(Linux; U; Android 2.3.7; zh-cn; MB200 Build/GRJ" + strconv.Itoa(randNum(999999999999999999)) + "; CyanogenMod-7) ",
 }
-var kernel = "AppleWebKit/" + strconv.Itoa(randNum(200)) + ".1.38 (KHTML, like Gecko) "
-var browser = "Chrome/75.0." + strconv.Itoa(randNum(200)) + "." + strconv.Itoa(randNum(100)) +
-	" Safari/" + strconv.Itoa(randNum(200)) + "." + strconv.Itoa(randNum(100))
+var kernel = "AppleWebKit/" + strconv.Itoa(randNum(999999999999999999)) + ".1.38 (KHTML, like Gecko) "
+var browser = "Chrome/75.0." + strconv.Itoa(randNum(999999999999999999)) + "." + strconv.Itoa(randNum(999999999999999999)) +
+	" Safari/" + strconv.Itoa(randNum(999999999999999999)) + "." + strconv.Itoa(randNum(999999999999999999))
 
 func downloadDoc(url string, docPath string) {
 	req := HttpRequest.NewRequest()
 	req.SetHeaders(map[string]string{
 		// 随机使用User-Agent
 		//"User-Agent": userAgent[randNum(100)%58],
-		"User-Agent": mazilla[randNum(10) % 4] + version[randNum(50) % 18] + kernel + browser,
+		"User-Agent": mazilla[randNum(100)%4] + version[randNum(500)%18] + kernel + browser,
 	})
 	//time.Sleep(100)
 	res, err := req.Get(url)
@@ -134,7 +137,7 @@ func downloadDoc(url string, docPath string) {
 	}
 	title := document.Find("body > div.w1200.ma.mb30 > div.clearfix.mt25 > div.fl.w830 > div.detail-page.pr.bg-f8.mt35 > h1")
 	content := document.Find("body > div.w1200.ma.mb30 > div.clearfix.mt25 > div.fl.w830 > div.detail-page.pr.bg-f8.mt35 > div.detail-nr")
-	fmt.Println("------------------------------------------------------------------------")
+	fmt.Println("---------------------", title.Text(), "---------------------------------------------------")
 	fmt.Println(url)
 	fmt.Println(content.Text())
 	if content.Text() == "" {
@@ -154,7 +157,7 @@ func getLaw(url, docPath string) {
 	req.SetHeaders(map[string]string{
 		// 随机使用User-Agent
 		//"User-Agent": userAgent[randNum(1000)%58],
-		"User-Agent": mazilla[randNum(10) % 4] + version[randNum(50) % 18] + kernel + browser,
+		"User-Agent": mazilla[randNum(100)%4] + version[randNum(500)%18] + kernel + browser,
 	})
 	//time.Sleep(100)
 	res, err := req.Get(url)
@@ -165,36 +168,43 @@ func getLaw(url, docPath string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	em := getBetweenStr(string(body), "<em>", "</em>")
-	list := strings.Split(em, " / ")
-	document, err := goquery.NewDocumentFromReader(strings.NewReader(string(body)))
+	//body > div.w1200.ma.mb50 > div.clearfix.mt25 > div.fl.w830 > div.clearfix.mt30 > div > div > em
+	doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(body)))
 	if err != nil {
 		log.Fatal(err)
 	}
-	url_detail := document.Find(`body > div.w1200.ma.mb50 > div.clearfix.mt25 > div.fl.w830 > div.clearfix.mt30 > div > ul > li`)
-	for i := 1; i <= url_detail.Size(); i++ {
-		temp := url_detail.Find("body > div.w1200.ma.mb50 > div.clearfix.mt25 > div.fl.w830 > div.clearfix.mt30 > div > ul > li:nth-child(" +
-			strconv.Itoa(i) + ") > h3 > a")
-		val, exists := temp.Attr("href")
-		if exists != false {
-			downloadDoc("https://www.66law.cn"+val, docPath)
-		}
-	}
-	if len(list) < 2 {
+	em := doc.Find("body > div.w1200.ma.mb50 > div.clearfix.mt25 > div.fl.w830 > div.clearfix.mt30 > div > div > em")
+	list := strings.Split(em.Text(), " / ")
+	if len(list) != 2  || len(list) == 0 {
 		getLaw(url, docPath)
-	}
-	page, _ := strconv.Atoi(list[0])
-	total, _ := strconv.Atoi(list[1])
-	if page < total {
-		page++
-		str := getBetweenStr(url, "https://www.66law.cn/tiaoli/", ".aspx")
-		next := "https://www.66law.cn/tiaoli/" + str[0:strings.LastIndex(str, "p")] + "p" + strconv.Itoa(page) + ".aspx"
-		//fmt.Println(next)
-		getLaw(next, docPath)
+	} else {
+		fmt.Println("list = ", list, "url = ", url)
+		document, err := goquery.NewDocumentFromReader(strings.NewReader(string(body)))
+		if err != nil {
+			log.Fatal(err)
+		}
+		url_detail := document.Find(`body > div.w1200.ma.mb50 > div.clearfix.mt25 > div.fl.w830 > div.clearfix.mt30 > div > ul > li`)
+		for i := 1; i <= url_detail.Size(); i++ {
+			temp := url_detail.Find("body > div.w1200.ma.mb50 > div.clearfix.mt25 > div.fl.w830 > div.clearfix.mt30 > div > ul > li:nth-child(" +
+				strconv.Itoa(i) + ") > h3 > a")
+			val, exists := temp.Attr("href")
+			if exists != false {
+				downloadDoc("https://www.66law.cn"+val, docPath)
+			}
+		}
+		page, _ := strconv.Atoi(list[0])
+		total, _ := strconv.Atoi(list[1])
+		if page < total {
+			page++
+			str := getBetweenStr(url, "https://www.66law.cn/tiaoli/", ".aspx")
+			next := "https://www.66law.cn/tiaoli/" + str[0:strings.LastIndex(str, "p")] + "p" + strconv.Itoa(page) + ".aspx"
+			//fmt.Println(next)
+			getLaw(next, docPath)
+		}
 	}
 }
 
-func solve(urlPath, docPath string) {
+func solve(urlPath, docPath string, ch chan bool) {
 	f, err := os.Open(urlPath)
 	if err != nil {
 		panic(err)
@@ -209,7 +219,9 @@ func solve(urlPath, docPath string) {
 			break
 		}
 	}
+	ch <- true
 }
+
 
 func main() {
 	// 法律分类列表
@@ -218,12 +230,20 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	ch := make(chan bool)
+	i := 0
 	for _, file := range dir {
+		i++
 		err := os.MkdirAll(filepath.Join(filePath, strings.ReplaceAll(file.Name(), ".txt", "")), os.ModePerm)
 		if err != nil {
 			panic(err)
 		}
-		solve(filepath.Join(dirPath, file.Name()), filepath.Join(filePath, strings.ReplaceAll(file.Name(), ".txt", "")))
+		fmt.Println(file.Name())
+		go solve(filepath.Join(dirPath, file.Name()), filepath.Join(filePath,
+			strings.ReplaceAll(file.Name(), ".txt", "")),ch)
+	}
+	for j := 0; j < i; j++ {
+		<-ch
 	}
 }
 
