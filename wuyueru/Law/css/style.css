@@ -1,0 +1,238 @@
+body,ul, li {
+	margin: 0;
+	padding: 0;
+	background-color: #F5F5F5;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.toper {
+	background-color: #333;
+	height: 40px;
+	font-size: 0;
+}
+
+.toper a {
+	font-size: 12px;
+	color: #b0b0b0;
+}
+
+.toper a:hover {
+	color: white;
+}
+
+a {
+	text-decoration: none;
+}
+
+.toper span {
+	font-size: 12px;
+	color: #424242;
+	font-family: sans-serif;
+	margin: 0.5em;
+}
+
+.toper-set {
+	float: left;
+	margin-top: 12px;
+	line-height: 12px;
+	padding: 0 0 0 50px;
+}
+
+
+.container::before,
+.container::after,
+.clearfix::before,
+.clearfix::after {
+	content: "";
+	display: table;
+}
+
+.container::after,
+.clearfix::after {
+	clear: both;
+}
+
+.container {
+	margin: 0;
+	width: 1226px;
+}
+
+.toper-notice {
+	float: right;
+	margin-top: 12px;
+	line-height: 12px;
+	/* padding: 0 20px 0 0; */
+}
+
+.toper-notice a {
+	display: block;
+	display: inline-block;
+	text-align: center;
+	height: 12px;
+	line-height: 12px;
+	width: 50px;
+}
+
+
+.header-img {
+	float: left;
+
+}
+
+.header-logo {
+	margin: 50px 0px 0px 70px;
+	width: 80px;
+	height: 80px;
+}
+
+.header-img a {
+
+	/* 字体发光带阴影*/
+
+
+	text-align: center;
+	font-family: cursive;
+	font-size: 50px;
+	font-weight: bold;
+	letter-spacing: 10px;
+	color: black;
+	text-shadow: 5px 5px 5px black, 0px 0px 2px red, 2px 2px 3px green;
+
+}
+
+.header-key {
+	/* position: absolute; */
+	float: left;
+	margin: 90px 0 0 70px;
+	width: 400px;
+	height: 50px;
+	border: 1px solid #e0e0e0;
+
+
+}
+/* #myForm{
+	position:relative;
+} */
+
+.search_btn {
+	position: absolute;
+	margin: 90px 0 0 0;
+	width: 50px;
+	height: 50px;
+	background: #FFFFFF;
+	border: 1px solid #e0e0e0;
+	outline: 0;
+}
+
+.header-search a {
+	font-size: 14px;
+	color: #B0B0B0;
+}
+
+.header-search .dia {
+	margin: 20px 30px 70px 120px;
+	height: 50px;
+	width: 50px;
+}
+
+.search_suggest 
+{
+ /* position:relative; */
+ z-index:999;
+ margin-left: 463px;
+ top:41px;
+ left: 132px;
+ width:400px;
+ border:0px solid #ccc;
+ border-top:none;
+ display:none;
+ color:#004080;
+}
+.search_suggest li 
+{
+ height:24px;
+ overflow:hidden;
+ padding-left:3px;
+ line-height:24px;
+ background:#fff;
+ cursor:default;
+}
+
+.search_suggest li.hover {background:#ddd;}
+.num_right 
+{
+ float:right;
+ text-align:right;
+ line-height:24px;
+ padding-right:10px
+}
+
+ #jsonTable li {
+	/* float: left; */
+	width: 650px;
+	height: 200px;
+	background-color: white;
+	/* border: 1px solid black; */
+	margin-left: 100px;
+	/* margin-right: 130px; */
+	margin-top: 50px;
+}
+
+
+
+.one {
+	text-align: center;
+	font-family: cursive;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 10px;
+	color: black;
+	padding-top: 20px;
+
+/* 控制每段字不超过一行，超过一行就用省略号代替 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	/* text-shadow: 5px 5px 5px black, 0px 0px 2px red, 2px 2px 3px green; */
+
+
+}
+
+.one:hover {
+	color: red;
+	cursor: pointer;
+}
+
+.two {
+	text-indent: 2em;
+	font-family: 黑体;
+	font-weight: bold;
+	/* font-style: italic; */
+	color: darkslategrey;
+/* 控制每段字不超过3行，超过一行就用省略号代替 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+
+}
+
+.two:hover {
+	/* display: inline-block; */
+	color: #008000;
+	cursor: pointer;
+}
+
+.bom {
+	font-size: 12px;
+	color: #999999;
+	margin-top: 100px;
+	padding: 35px;
+	text-align: center;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>中华法网 - 1.0</title>
+		<link rel="stylesheet" href="css/style.css">
+		<!-- 先给网页上个logo标签 -->
+		<link rel="shortcut icon" href="img/tqimg.icon" type="img/x-icon">
+		<link rel="stylesheet" type="text/css" href="font_1133185_zx76t93rxgq/iconfont.css" />
+
+	</head>
+	<body>
+		<!-- 暗格栏 toper-->
+		<div class="toper">
+			<div class="container">
+				<div class="toper-set">
+					<a href="">换肤</a><span>|</span>
+					<a href="">下载app</a>
+				</div>
+
+				<div class="toper-notice">
+					<a href="">登录</a><span>|</span>
+					<a href="">注册</a><span>|</span>
+					<a href="">消息通知</a><span>|</span>
+					<a href=""><i class="iconfont">&#xe64b;</i> 设置</a>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 图标logo栏 搜索框栏 header-->
+
+		<div class="header clearfix">
+			<div class="header-img">
+				<a href=""><img src="img/timg.jpg" class="header-logo" />中华法网</a>
+
+
+
+			</div>
+			<div class="header-search">
+
+				<form id="myForm" action="" target="_blank">
+
+					<input type="text" name="keyword" class="header-key" id="gover_search_key" placeholder="  请输入关键字..." />
+					<input type="submit" name="search" value="&#xe651;" class="search_btn iconfont" />
+					<!-- 搜索框提示 -->
+					<div class="search_suggest" id="gov_search_suggest">
+						<ul>
+						</ul>
+					</div>
+				</form>
+				<a href="">个人版</a>
+				<a href="">企业版</a>
+				<a href="">律师版</a>
+				<a href="">个人VIP</a>
+				<a href="">企业VIP</a>
+			</div>
+		</div>
+
+		<hr color="#B0B0B0" />
+		<!-- 推荐信息栏 -->
+
+		<ul id="jsonTable">
+
+		</ul>
+
+
+
+		<!-- </div> -->
+		<script src="jquery-1.8.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/searchWord.js"></script>
+
+
+		<script type="text/javascript">
+			$(function() {
+						getDate();
+
+						function getDate() {
+							var temp = '';
+							$.ajax({
+								type: "get", // 以get方式发起请求
+								url: "queryList.json",
+								dataType: "json",
+								data: $("myForm").serialize(), // 对id为myForm的表单数据进行序列化并传递到后台
+								success: function(res) {
+									var list = res.text
+									console.log(list)
+									for (var $i = 0; $i < list.length; $i++) {
+										temp +=
+											'<li>' +
+											'<p class="one">' + list[$i].id + '</p>' +
+											'<a href=""><p class="two">' + list[$i].name + '</p></a>' +
+											'</li>';
+									}
+									$("#jsonTable ul:not(:first)").html(""); /*  除了第一行ul的内容，其余内容清空，防止获取重复的数据  */
+									$("#jsonTable").append(temp);
+									
+								}
+							});
+							}
+						});
+		</script>
+	</body>
+</html>
+ 
